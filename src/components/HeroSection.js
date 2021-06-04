@@ -13,9 +13,13 @@ function HeroSection() {
 
   return (
     <div className='hero-container'>
-      <video src='/videos/video-1.mp4' autoPlay loop muted />
-      <h1>CRIATIVIDADE E CONHECIMENTO</h1><br/><br/>
+      <video src='https://www.youtube.com/watch?v=BZL0kiyjbyo' autoPlay loop muted />
+      
+      <h1>CRIATIVIDADE E CONHECIMENTO</h1><br/><br/><br/>
+      
       <h1>VALEM MUITO</h1>
+      
+      
       <p>O que voçê está esperando?</p>
       <div className='hero-btns'>
         <Button onClick={openModal} variant="contained" color="inherit" >
