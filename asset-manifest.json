@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rafaelqpfaria/new-question-repo/static/css/main.ad9e6d5c.chunk.css",
+    "main.js": "/rafaelqpfaria/new-question-repo/static/js/main.01d7f793.chunk.js",
+    "main.js.map": "/rafaelqpfaria/new-question-repo/static/js/main.01d7f793.chunk.js.map",
+    "runtime-main.js": "/rafaelqpfaria/new-question-repo/static/js/runtime-main.47633937.js",
+    "runtime-main.js.map": "/rafaelqpfaria/new-question-repo/static/js/runtime-main.47633937.js.map",
+    "static/js/2.cd1c5bf0.chunk.js": "/rafaelqpfaria/new-question-repo/static/js/2.cd1c5bf0.chunk.js",
+    "static/js/2.cd1c5bf0.chunk.js.map": "/rafaelqpfaria/new-question-repo/static/js/2.cd1c5bf0.chunk.js.map",
+    "static/js/3.6985ad4a.chunk.js": "/rafaelqpfaria/new-question-repo/static/js/3.6985ad4a.chunk.js",
+    "static/js/3.6985ad4a.chunk.js.map": "/rafaelqpfaria/new-question-repo/static/js/3.6985ad4a.chunk.js.map",
+    "index.html": "/rafaelqpfaria/new-question-repo/index.html",
+    "static/css/main.ad9e6d5c.chunk.css.map": "/rafaelqpfaria/new-question-repo/static/css/main.ad9e6d5c.chunk.css.map",
+    "static/js/2.cd1c5bf0.chunk.js.LICENSE.txt": "/rafaelqpfaria/new-question-repo/static/js/2.cd1c5bf0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47633937.js",
+    "static/js/2.cd1c5bf0.chunk.js",
+    "static/css/main.ad9e6d5c.chunk.css",
+    "static/js/main.01d7f793.chunk.js"
+  ]
+}
