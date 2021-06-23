@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function Disciplines() {
+export default function disciplines() {
     const disciplinesArray = [
         {value : 'Matemática' , label : '1'},
         {value : 'Português' , label : '2'},
@@ -12,7 +10,7 @@ export default function Disciplines() {
         {value : 'Filosofia' , label : '8'},
         {value : 'Sociologia' , label : '9'}            
     ]
-    return disciplinesArray
+    return disciplinesArray 
 }
 
 

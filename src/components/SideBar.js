@@ -3,24 +3,24 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Drawer from '@material-ui/core/Drawer'
 import DrawerContent from './DrawerContent'
+import { useAuth } from '../Context/AuthContext'
+import { useHistory } from 'react-router-dom'
+import SortIcon from '@material-ui/icons/Sort';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
+  root: {     
+    flexGrow: 1,    
+  },  
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -29,31 +29,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  }, 
+  
   inputRoot: {
     color: 'inherit',
   },
@@ -79,6 +56,32 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  appbar: {
+    background: 'none',
+  },
+  appbarWrapper: {
+    width: '80%',
+    margin: '0 auto',
+  },
+  appbarTitle: {
+    flexGrow: '1',
+  },
+  colorText: {
+    color: '#5AFF3D',
+  },
+  appbarTitle: {
+    flexGrow: '1',
+  },
+  icon: {
+    color: '#fff',
+    fontSize: '2rem',
+  },
+  button: {
+    color: '#fff',
+    borderColor: '#fff',
+    margin: theme.spacing(1) 
+
+  },
 }));
 
 export default function SideBar() {
@@ -86,9 +89,23 @@ export default function SideBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [toogleDrawer, setToogleDrawer] = React.useState(false)
+  const [error,setError] = React.useState('')
+  const {logout} = useAuth()
+  const history = useHistory()
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  async function handleLogout(){
+    setError('')
+
+    try{
+      await logout()
+      history.push('/Start')
+    }catch{
+      setError('Erro ao realizar Logout')
+    }
+  }
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -132,6 +149,7 @@ export default function SideBar() {
     >
       <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
       <MenuItem onClick={handleMenuClose}>Minha Conta</MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -178,10 +196,15 @@ export default function SideBar() {
 
   
   return (
-    <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
+    <div className={classes.root}>
+      <AppBar className={classes.appbar} elevation={0}>
+        <Toolbar className={classes.appbarWrapper}>
+          <h1 className={classes.appbarTitle}>
+            New<span className={classes.colorText}>Learning.</span>
+          </h1>
+          <Button className={classes.button} href='/login'>Sign In</Button>  
+          <Button className={classes.button} variant="outlined" href='/signup'>Sign Up</Button>  
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -189,38 +212,13 @@ export default function SideBar() {
             onClick={handleClick}            
           >
             <Drawer open={toogleDrawer} onClose={onClose(false)}>
-            <DrawerContent></DrawerContent>
+              <DrawerContent/>
             </Drawer>
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            DataCamp.io
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Pesquisar..."
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+              <SortIcon className={classes.icon} />
+          </IconButton>  */}
+                               
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+          <div className={classes.sectionDesktop}>            
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -244,7 +242,8 @@ export default function SideBar() {
             </IconButton>
           </div>
         </Toolbar>
-      </AppBar>
+      </AppBar>    
+
       {renderMobileMenu}
       {renderMenu}
     </div>
