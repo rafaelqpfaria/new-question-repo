@@ -80,6 +80,22 @@ function QueryResult() {
 
   function handleSelect(question, theme) {
     setLoading(true);
+    if(theme === undefined){
+      ref.doc(question).onSnapshot((querySnapshot) => {
+
+        const itemsNotDef = [];
+        querySnapshot.forEach((doc) => {
+  
+          itemsNotDef.push(doc.data());
+  
+        });
+        setQuestions(itemsNotDef);
+      })
+      console.log(questions)
+      return 
+    }
+
+    
     ref.doc(question).collection(theme).onSnapshot((querySnapshot) => {
 
       const items = [];
@@ -89,8 +105,7 @@ function QueryResult() {
 
       });
       setQuestions(items);
-      setLoading(false);
-      console.log(items[0].itens[0].content)
+      setLoading(false);      
     });
   }
 
