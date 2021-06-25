@@ -23,7 +23,7 @@ function App() {
           <ContentContextProvider>
             <Switch>
 
-              <PrivateRoute exact path="/" component={Dashboard} basename={'/new-question-repo/'} />
+              <PrivateRoute exact path="/" component={Dashboard}  />
               <PrivateRoute exact path="/querypage" component={QueryPage} />
               <Route path="/start" component={DashboardFree} />
               <Route path="/test" component={TestOut} />
