@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/new-question-repo/static/css/main.a9646ba1.chunk.css",
-    "main.js": "/new-question-repo/static/js/main.24cb639c.chunk.js",
-    "main.js.map": "/new-question-repo/static/js/main.24cb639c.chunk.js.map",
+    "main.js": "/new-question-repo/static/js/main.89ec7162.chunk.js",
+    "main.js.map": "/new-question-repo/static/js/main.89ec7162.chunk.js.map",
     "runtime-main.js": "/new-question-repo/static/js/runtime-main.3ec3a305.js",
     "runtime-main.js.map": "/new-question-repo/static/js/runtime-main.3ec3a305.js.map",
     "static/js/2.87623e4a.chunk.js": "/new-question-repo/static/js/2.87623e4a.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.3ec3a305.js",
     "static/js/2.87623e4a.chunk.js",
     "static/css/main.a9646ba1.chunk.css",
-    "static/js/main.24cb639c.chunk.js"
+    "static/js/main.89ec7162.chunk.js"
   ]
 }
